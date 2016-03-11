@@ -1,0 +1,31 @@
+What the fuck is this?
+
+Ini catatan untuk menghilangkan index.php dari url CI
+Dan ini cuman buat Gue, jadi klo loe nyoba and malah tambah Error : EGP !
+
+1. bikin file .htaccess
+isinya :
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/system.*
+RewriteRule ^(.*)$ index.php?/$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ index.php?/$1 [L]
+
+
+RewriteCond $1 !^(index\.php|images|js|css|favicon\.png)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ ./index.php/$1 [L]
+
+gak usah tanya2 kenapa kaya gitu bentuknya.!
+
+2. ubah menjadi $config['index_page'] = ''; yang tadinya $config['index_page'] = 'index.php';
+
+3. OOT
+OOT 1. sudo nano /etc/apache2/apache2.conf
+       ubah yang untuk folder www menjadi
+
+	AllowOverride All
+OOT 2. sudo a2enmod rewrite
+OOT 3. Ikutin aja apa maunya dari OOT 2.
