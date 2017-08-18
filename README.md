@@ -1,3 +1,3 @@
-# bookmark
-catatan untuk bookmark
+# CATATAN
+beberapa catatan yang takutnya akan terlupakan
 
